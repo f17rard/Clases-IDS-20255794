@@ -33,5 +33,5 @@ apellido = "Portillo"
 nombre_completo = nombre + " " + apellido #se estan "concatenando" dos variables de texto 
 print(nombre_completo)
 
-str5 = str(3.1416)
+str5 = str(3.1416) # con esta se puede convertir la variable a string
 print(type(str5))
