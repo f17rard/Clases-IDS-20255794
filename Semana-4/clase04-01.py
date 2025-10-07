@@ -4,16 +4,16 @@ edad_promedio = 18.231234
 monto_hope = 1234567.5678901
 inversion_evento = -98765.21548
 
-# # print(type (q_alumnos))
-# # print(type (edad_promedio))
+# print(type (q_alumnos))
+# print(type (edad_promedio))
 
-# # print(type(q_alumnos) is int) 
-# # print(type(edad_promedio) is int)
+# print(type(q_alumnos) is int) 
+# print(type(edad_promedio) is int)
 
-# # print("el usuario es:", usuario, "y tiene", q_alumnos, "alumnos")
-# # print("la edad promedio es de", edad_promedio)
+# print("el usuario es:", usuario, "y tiene", q_alumnos, "alumnos")
+# print("la edad promedio es de", edad_promedio)
 
-# #f-string
+#f-string
 # print(f"El usuario es {usuario}")
 # print(f"y en su aula con {q_alumnos - 4} pajaritos en su aula")
 # print(f"con la edad promedio de {edad_promedio:.2f} años ") # .2f - dos decimales fijos
@@ -28,3 +28,10 @@ inversion_evento = -98765.21548
 # print(type(esta_lloviendo)is bool)
 # print(type(monto_hope)is not bool)
 
+nombre = "Alvin"
+apellido = "Portillo"
+nombre_completo = nombre + " " + apellido #se estan "concatenando" dos variables de texto 
+print(nombre_completo)
+
+str5 = str(3.1416)
+print(type(str5))
