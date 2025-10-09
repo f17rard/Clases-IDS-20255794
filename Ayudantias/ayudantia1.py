@@ -9,10 +9,12 @@
 # print(a+b)
 
 ####################Ejercicio 3######################################
+#el while no necesita usar un "else:"
 
 num_manzana = int(input())
 cliente = 0
-while num_manzana != 1:
+
+while num_manzana != 1: 
     cliente_final=cliente+1
     if num_manzana%2 == 0:
         num_manzana = num_manzana/2
@@ -20,5 +22,5 @@ while num_manzana != 1:
     else:
         num_manzana = (num_manzana*3)+1
         print(num_manzana)
-else:
-    print(cliente_final)
+
+print(cliente_final)
