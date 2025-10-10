@@ -61,3 +61,13 @@ palabra_encriptada="DFGUPCCBJKAJ"
 
 print(palabra_encriptada[0::3])
 """
+
+"""#ejercicio 8
+
+x=10
+y=10
+print(x != y)
+"""
+
+#ejercicio 9
+
