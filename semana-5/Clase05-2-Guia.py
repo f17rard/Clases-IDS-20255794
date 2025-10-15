@@ -69,5 +69,20 @@ y=10
 print(x != y)
 """
 
-#ejercicio 9
+"""#ejercicio 9
 
+import calendar
+from datetime import datetime
+fecha=datetime.now()
+mes = fecha.month
+anio_actual = 2025
+anio_nacimiento = int(input("digite su año de nacimiento: "))
+mes_nacimiento = int(input("digite el número del año de nacimiento: "))
+if mes < mes_nacimiento:
+    mes_restar = mes_nacimiento-mes
+    print(f"Te faltan {mes_restar} mes para cumplir años")
+    print(f"Tu edad es de: {(anio_actual-anio_nacimiento)-1}")
+else:
+    print(f"tu edad es de: {anio_actual-anio_nacimiento}")
+
+"""
