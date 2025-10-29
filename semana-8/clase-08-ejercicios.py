@@ -29,4 +29,4 @@ for v in valores:
             valor += i
             
         
-print(valores[v][i])
+print()
