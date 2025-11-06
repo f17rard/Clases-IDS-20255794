@@ -1,25 +1,42 @@
 activado = True
-productos = {}
+productos = []
 clientes = {}
 
-CodigoP = 0
+codigoP = 0
 CodigoC = 0
 
 
 while activado:
     menu = input("""Elija una opcion:
-                 1. Mostrar productos
-                 2. Agregar producto
-                 3. Registrar nuevo cliente
-                 4. Mostrar clientes
-                 5. Registrar pedido
-                 6. Mostrar pedidos del día
-                 7. Mostrar categorias disponibles
-                 8. Salir
-                 Escriba aqui: """)
+1. Mostrar productos
+2. Agregar producto
+3. Registrar nuevo cliente
+4. Mostrar clientes
+5. Registrar pedido
+6. Mostrar pedidos del día
+7. Mostrar categorias disponibles
+8. Salir
+Escriba aqui: """)
     if menu == "1":
-        print(productos)
+        for i in productos:
+            print(i)
     elif menu == "2":
-        for i in range(1):
-            codigo += 1
-            productos[f"P{codigo+1}"]
+        codigoP += 1
+        producto = {}
+        if codigoP> 10:
+            producto[f"P0{codigoP}"] = input("Ingrese el nuevo producto: ")
+            producto["Categoria"] = input("Escriba la categoria del producto: ")
+            producto["Precio"] = input("Digite el precio del producto: ")
+            productos.append(producto)
+        elif codigoP> 100:
+            producto[f"P{codigoP}"] = input("Ingrese el nuevo producto: ")
+            producto["Categoria"] = input("Escriba la categoria del producto: ")
+            producto["Precio"] = input("Digite el precio del producto: ")
+            productos.append(producto)
+        else:
+            producto[f"P00{codigoP}"] = input("Ingrese el nuevo producto: ")
+            producto["Categoria"] = input("Escriba la categoria del producto: ")
+            producto["Precio"] = input("Digite el precio del producto: ")
+            productos.append(producto)
+    elif menu == "8":
+        activado = False
