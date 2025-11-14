@@ -22,7 +22,7 @@ def registro_usuario(nombre, apellido, inicial="", edad=0): #funcion para decidi
     
 # registro_usuario("juan", "gavidia", "w", 35)
 
-def saludar_usuario(nombres):
+def saludar_usuario(nombres): #trabajo con lista 
     """Saludar al usuario"""
     for nombre in nombres:
         print(f"Hola {nombre.capitalize()}")
