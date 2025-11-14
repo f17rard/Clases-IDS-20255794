@@ -1,4 +1,4 @@
 
 import funciones
 
-funciones.ordenar_pizza("Grande", "queso", "peperoni")
+funciones.ordenar_pizza("Grande", "queso", "jamon")
