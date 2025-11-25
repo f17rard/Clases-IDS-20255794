@@ -1,7 +1,10 @@
 #Ejercicio 1 - Registro de clientes
 clientes = {}
+servicios = ["Diseño web", "Ciencia de datos", "Machine learning aplicado", "Desarrollo de APIs Empresariales"]
+contratos = {}
 
-def registro(): #funcion para llamar el registro de cliente
+
+def crear_cliente(): #funcion para llamar el registro de cliente
     conteo = 0
     while conteo !=2:
         dui = input("Digite su DUI: ")
@@ -9,7 +12,7 @@ def registro(): #funcion para llamar el registro de cliente
             if len(dui) == 10 and dui[-2] == "-": #comprobar que está correcto el dui
                 conteo = 2
             else:
-                print("Su DUI no cuenta con los parametros correctos")
+                print("Su DUI no cuenta con los parametros correctos.")
         else:
             for i in clientes.keys():
                 if dui == i:
@@ -19,32 +22,29 @@ def registro(): #funcion para llamar el registro de cliente
                     conteo = 2
                     break
                 else:
-                    print("Su DUI no cuenta con los parametros correctos")
-
-    nombre = input("Escriba su nombre: ")
-    apellido = input("Escriba su apellido: ")
-    print("")
-    clientes[dui] = f"{nombre} {apellido}"
-
-
-while True:
-    menu = input(f"""Seleccione una opcion
-    1. Registrarse
-    2. Consultar clientes
-    3. Salir
-    Digite: """)
-    print("")
-
-    if menu == "1":
-        registro()
-    elif menu == "2":
-        if len(clientes) == 0:
-            print("No se ha registrado ningun cliente. \n")
+                    print("Su DUI no cuenta con los parametros correctos.")
+    
+    while True:
+        try:
+            nombre = input("Escriba su nombre: ")
+        except:
+            print("\n Tiene que escribir un nombre en el apartado.")
         else:
-            for d, n in clientes.items():
-                print(f"{d.capitalize()}: {n.title()}")
-            print("")
-    elif menu == "3":
-        break
-    else:
-        print("el numero no es valido. \n")
+            break
+    
+    while True:    
+        try:
+            apellido = input("Escriba su apellido")
+        except:
+            print("\n Tiene que escribir un apellido en el apartado.")
+        else:
+            break
+    
+    clientes[dui] = f"{nombre.capitalize()} {apellido.capitalize()}"
+
+menu = input("""Menu
+            1. Crear usuario
+            2. Contratar servicio
+            3. Listar clientes por servicio
+            4. Salir
+            Seleccione una opcion.""")
