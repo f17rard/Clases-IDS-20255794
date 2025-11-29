@@ -50,21 +50,54 @@ def inscribir_en_curso():
     while activador:
         carnet_c = input("Digita tu carnet (si deseas salir escribe 'salir'): ")
         #si escribe salir
+        estado = True
         if carnet_c.lower() == "salir":
             print("Saliendo...")
             activador = False
             break
+        else:
+            for c in inscripciones:
+                if carnet_c == c[0]: #comprobando si esta en un curso
+                    print("Ya esta inscrito en un curso.")
+                    estado = False
+                    existe = True
+                else:
+                    print("Digite un carnet.")
+                break
+                
         
         existe = False
-        for i in estudiantes:
-            if carnet_c == i["carnet"]:
-                print("Existes. ")
-                existe = True
-                activador = False
-                break
+        while estado:
+            for i in estudiantes: 
+                if carnet_c == i["carnet"]:
+                    print("Seleccione un curso.")
+                    opcion = input(
+                        """Codigo |Descripcion
+                PY      |Python básico
+                JS      |Javascript para principiantes
+                BD      |Introduccion a base de datos
+                SE      |Seguridad de entornos digitales
+                        
+                Digite el codigo del curso que desea cursar
+                        (Si quiere salir escriba salir): """
+                    ).upper()
+                    if opcion in cursos.keys():
+                        print("Registado.")
+                        inscripciones.append(
+                            (carnet_c, opcion)
+                        )
+                        estado = False
+                        existes = True
+                    elif opcion == "SALIR":
+                        estado = False
+                    else:
+                        print("Seleccione una opcion valida")
+                    existe = True
+                    break
         
         if existe == False:
             print("No exites.")
+            
                 
         
 def generar_reporte():
@@ -92,5 +125,13 @@ def generar_reporte():
                     else:
                         print("no hay nadie")
                         break
+            elif menu2 == "5":
+                for c in enumerate(estudiantes, start=1):
+                    for a, i in enumerate(inscripciones, start=1):
+                        if i[1] != c["carnet"]:
+                            print(a, c[0])
+                        else:
+                            print("no hay nadie")
+                            break
             elif menu2 == "6":
                 break
