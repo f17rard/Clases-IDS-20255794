@@ -1,7 +1,7 @@
 #El menu de mi sistema donde llamare las funciones de los modulos 
 
 #Importar modulos a usar
-from modulo_funciones import registar_estudiantes, inscribir_en_curso
+from modulo_funciones import registar_estudiantes, inscribir_en_curso, generar_reporte
 while True:
     print("""
 -- Menú principal -- 
@@ -16,7 +16,7 @@ while True:
     elif opcion == "2":
         inscribir_en_curso()
     elif opcion == "3":
-        print("Elegiste 3")
+        generar_reporte()
     elif opcion == "4":
         print("Gracias, vuelva pronto.")
         break

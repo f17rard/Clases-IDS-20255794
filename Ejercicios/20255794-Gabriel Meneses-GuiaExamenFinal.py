@@ -95,24 +95,36 @@ def listar_clientes_por_servicio():
                 for k, v in contratos.items():
                     if v == "WD":                        
                         print(k)
+                    else: 
+                        print("No hay clientes con este servicio.")
+                print("")
             elif opcion == "2":
                 print("")
                 print(f"= {servicios['DS']} =")
                 for k, v in contratos.items():
                     if v == "DS":                                              
                         print(k)
+                    else: 
+                        print("No hay clientes con este servicio.")
+                print("")
             elif opcion == "3":
                 print("")
                 print(f"= {servicios['ML']} =")
                 for k, v in contratos.items():
                     if v == "ML":
                         print(k)
+                    else: 
+                        print("No hay clientes con este servicio.")
+                print("")
             elif opcion == "4":
                 print("")
                 print(f"= {servicios['API']} =")
                 for k, v in contratos.items():
                     if v == "API":
                         print(k)
+                    else: 
+                        print("No hay clientes con este servicio.")
+                print("")
             elif opcion == "5":
                 print("")
                 print("= No contratados =")
@@ -121,6 +133,7 @@ def listar_clientes_por_servicio():
                         print(k)
                     else:
                         print("Todos los clientes registrados cuentan con un servicio contratado.")
+                print("")
             elif opcion == "6":
                 break
 

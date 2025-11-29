@@ -3,20 +3,23 @@ from modulo_datos import estudiantes, cursos, inscripciones
 
 def registar_estudiantes():
     """Funcion que valida y registra estudiante"""
+    
     while True: #captura de carnet
         carnet_i = input("Digite el número de su carnet: ")
         compro = False
+        
         for c in estudiantes:
-            if c["carnet"] == carnet_i:
-                print("El carnet existe. Registre uno diferente.")
+            if c["carnet"] == carnet_i: #verifico si el carnet existe
                 compro = True
-        if len(carnet_i)>=6 and len(carnet_i)<=10 and compro == False:
+                break
+            
+        if compro: #informo que el carnet existe
+            print("El carnet existe. Registre uno diferente.")
+        elif 6<= len(carnet_i) <=10: #compruebo los requisitos
             break
         else:
-            print("""No cumple los requisitos. 
-- Debe tener más de 5 caracteres y menos de 11. 
-- No debe existir el carnet.""")
-                
+            print("el largo del carnet debe ser mayor a 5 y menor a 11.")
+        
             
     while True:   
         nombre_i = input("Digite el nombre del estudiante: ")
@@ -41,37 +44,53 @@ def registar_estudiantes():
     )
     for k in estudiantes:
         print(k)
-        
+         
 def inscribir_en_curso():
     activador = True
-    compro = False
     while activador:
-        carnet_c = input("Digite su carnet (Si desea salir escriba 'salir'): ")
-        for i in inscripciones:
-            if carnet_c == i["carnet"]:
-                print("Ya te encuentras inscrito en un curso.")
-                compro = True
-        for c in estudiantes:
-            if carnet_c == c["carnet"] and compro == False:
-                while True:
-                    print("Cursos disponibles")
-                    print("Codigo | Descripcion")
-                    print(f"PY     | {cursos['PY']}")
-                    print(f"JS     | {cursos['JS']}")
-                    print(f"BD     | {cursos['BD']}")
-                    print(f"SE     | {cursos['SE']}")
-                    code = input("Escriba el codigo del curso que cursará: ").upper()
-                    if code == "PY" or code == "JS" or code == "BD" or code == "SE":
-                        inscripciones.append(
-                            {carnet_c, code}
-                        )
-                    else: 
-                        print("seleccione una opcion corecta")
-                
-                activador = False
-                break
-            else:
-                print("El carnet no existe o ya estas en un curso")
+        carnet_c = input("Digita tu carnet (si deseas salir escribe 'salir'): ")
+        #si escribe salir
         if carnet_c.lower() == "salir":
             print("Saliendo...")
             activador = False
+            break
+        
+        existe = False
+        for i in estudiantes:
+            if carnet_c == i["carnet"]:
+                print("Existes. ")
+                existe = True
+                activador = False
+                break
+        
+        if existe == False:
+            print("No exites.")
+                
+        
+def generar_reporte():
+    while True:
+        if len(inscripciones) == 0: #Si no hay nadie inscrito
+            print("No se ha realizado ninguna inscripción.")
+            break
+        
+        if len(inscripciones) > 0: #Aqui si encuentra gente inscrita.
+            menu2= input(
+                """-- Menu de reportes --
+                1. PY
+                2. JS
+                3. BD
+                4. SE
+                5. Estudiantes sin inscripciones
+                6. Salir
+                
+                Seleccione una opcion: """
+            )
+            if menu2 == "1": #aqui se comprueba si hay gente en Python
+                for a, i in enumerate(inscripciones, start=1):
+                    if i[1] == "PY":
+                        print(a, i[0])
+                    else:
+                        print("no hay nadie")
+                        break
+            elif menu2 == "6":
+                break
