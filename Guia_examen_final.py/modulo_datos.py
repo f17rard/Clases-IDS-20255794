@@ -1,10 +1,10 @@
 #este modulo va a contener datos, estructuras y catalogos
 
 #Lista para contener estudiantes
-estudiantes = {}
+estudiantes = []
 
 #Diccionario con los cursos disponibles
-curso = {
+cursos = {
     "PY": "Python básico",
     "JS": "Javascript para principiantes",
     "BD": "Introduccion a base de datos",
